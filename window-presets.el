@@ -1,5 +1,4 @@
 ;;
-;; Learning some elisp
 ;; Joel Svensson 2018
 ;;
 ;; Functions for restoring window layouts that I like 
@@ -75,8 +74,8 @@
   )
 
 
-;; Example presets (presets are functions taking a root window as argument) 
-(defun preset1 (root-window)
+;; Example preset (presets are functions taking a root window as argument) 
+(defun example-preset (root-window)
   "two editing windows and a shell console."
   "This function assumes there is only one window currently"
   (setq shell-window (split-window-below  (* 3 (/ (window-body-height) 4))))
