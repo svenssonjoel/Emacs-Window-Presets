@@ -37,7 +37,7 @@
 	  (lookup-list s (cdr l))
 	  )
 	)
-    (())
+    ()
     )
   )
 
