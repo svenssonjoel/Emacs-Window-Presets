@@ -8,7 +8,28 @@
 ;; TODO: What happens if display-buffer-alist contains some other
 ;;       setting for shell. That other setting should, maybe, be deleted
 
+;; ------------------------------------------------------------
+;; Saving and restoring window layouts from a stack
+;; ------------------------------------------------------------
+(defvar window-layouts-stack ()
+  "Contains stored window configurations")
 
+(setq window-layouts-stack ())
+
+(defun window-layout-push ()
+  "Save current window layout to stack"
+  (push (current-window-configuration) window-layouts-stack)
+  )
+
+(defun window-layout-pop ()
+  "Restore window layout from top of the stack"
+  (set-window-configuration (pop window-layouts-stack))
+  )
+
+
+;; ------------------------------------------------------------
+;; Functions for recalling window layout presets
+;; ------------------------------------------------------------
 
 (defun reset-windows (l)
   "Removes all windows leaving just the one as the new root"
@@ -58,7 +79,7 @@
 (defun preset1 (root-window)
   "two editing windows and a shell console."
   "This function assumes there is only one window currently"
-  (setq shell-window (split-window-below  (* 2 (/ (window-body-height) 3))))
+  (setq shell-window (split-window-below  (* 3 (/ (window-body-height) 4))))
   (split-window root-window () 'right)
   (with-selected-window shell-window (shell))
   )
