@@ -62,7 +62,7 @@
   )
 
 (defun configure-shell-open-in-active-window ()
-  "This function looks in the display-buffer-alist and checks and"
+  "This function looks in the display-buffer-alist and"
   "adds display-buffer-same-window if not yet present for shell"
   (if (not ( eq
 	     (lookup-list (regexp-quote "*shell") display-buffer-alist)
